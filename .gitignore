@@ -1,0 +1,20 @@
+dist/
+.test-data/
+*.tmp
+studio-preview.png
+studio-minimum.png
+preview-minimum.png
+color-wheel-preview.png
+library-overflow.png
+color-editor-contained.png
+studio-dark.png
+settings-preview.png
+advanced-editor.png
+*-updated.png
+
+# Local verification output and derived source maps
+*-results.txt
+history-preview.png
+graphify-out/
+output/
+website/.openai/

@@ -1,0 +1,5 @@
+# Minimal 3.14 icon prompt
+
+Design a minimal app icon for **3.14**, pronounced **Pi**, a Windows color picker and palette studio. Create one simple geometric emblem: a clean circular ring with a small intentional gap and a single detached sampling dot near the upper-right edge. The circle suggests a color wheel and the complete pick → generate → preview → export workflow. Use balanced proportions, optically even spacing, sturdy strokes and a distinctive silhouette that remains clear at 16–32 pixels. Restrained, precise, warm, contemporary desktop-software identity. One flat violet color **#6C59C8**, transparent background, centered in a square canvas with generous padding. Flat vector-like finish, no text, no numerals, no π glyph, no rainbow, no gradients, no shadows, no glass, no 3D, no device mockups, no fine decorative detail. Produce a single polished emblem, not a sheet of concepts. Output a 1024 × 1024 transparent PNG; the shape should also work as a one-color SVG.
+
+Name availability has not been verified. The π connection is visual and conceptual, not a claim of mathematically superior palettes.

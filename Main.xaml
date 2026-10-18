@@ -1,0 +1,146 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework" xmlns:p="clr-namespace:System.Windows.Controls.Primitives;assembly=PresentationFramework" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+ Title="3.14 — Color Picker &amp; Palette Studio" Width="1160" Height="760" MinWidth="1160" MaxWidth="1160" MinHeight="760" MaxHeight="760" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanMinimize" Background="{DynamicResource UiF5F5F8}" FontFamily="{DynamicResource BodyFont}" FontSize="{DynamicResource BodySize}" Foreground="{DynamicResource Ui252633}">
+ <Window.Resources><sys:Double x:Key="BodySize">14</sys:Double><sys:Double x:Key="HeadingSize">23</sys:Double><sys:Double x:Key="SectionSize">16</sys:Double><sys:Double x:Key="CaptionSize">11</sys:Double><sys:Double x:Key="CodeSize">12</sys:Double>
+<SolidColorBrush x:Key="UiF5F5F8" Color="#F5F5F4"/>
+<SolidColorBrush x:Key="UiFFFFFF" Color="#FFFFFF"/>
+<SolidColorBrush x:Key="UiF2F2F7" Color="#F1F1F0"/>
+<SolidColorBrush x:Key="UiEDECF3" Color="#ECECEB"/>
+<SolidColorBrush x:Key="UiECEBF2" Color="#ECECEB"/>
+<SolidColorBrush x:Key="UiEFEDF8" Color="#EFEFEE"/>
+<SolidColorBrush x:Key="UiDDD7F3" Color="#DEDEDC"/>
+<SolidColorBrush x:Key="UiEAE7F2" Color="#E8E8E6"/>
+<SolidColorBrush x:Key="Ui252633" Color="#222222"/>
+<SolidColorBrush x:Key="Ui363543" Color="#333333"/>
+<SolidColorBrush x:Key="Ui292A38" Color="#292929"/>
+<SolidColorBrush x:Key="Ui646676" Color="#606060"/>
+<SolidColorBrush x:Key="Ui515362" Color="#515151"/>
+<SolidColorBrush x:Key="Ui777989" Color="#696969"/>
+<SolidColorBrush x:Key="UiDCDCE6" Color="#DADAD8"/>
+<SolidColorBrush x:Key="Ui5542A7" Color="#333333"/>
+<SolidColorBrush x:Key="Ui4F3E99" Color="#3D3D3D"/>
+<SolidColorBrush x:Key="UiD9D2EE" Color="#DADAD8"/>
+<SolidColorBrush x:Key="UiF0ECFC" Color="#F0F0EE"/>
+<SolidColorBrush x:Key="UiE9E5FA" Color="#E2E2E0"/>
+<SolidColorBrush x:Key="Ui346346" Color="#346346"/>
+<SolidColorBrush x:Key="Ui934521" Color="#934521"/>
+<SolidColorBrush x:Key="Ui646173" Color="#606060"/>
+<SolidColorBrush x:Key="UiDCD5F1" Color="#DEDEDC"/>
+<SolidColorBrush x:Key="UiF6DFE5" Color="#F6DFE5"/>
+<SolidColorBrush x:Key="UiA12E49" Color="#A12E49"/>
+<SolidColorBrush x:Key="Ui9D8CC6" Color="#777777"/>
+<SolidColorBrush x:Key="Ui6C59C8" Color="#303030"/>
+<SolidColorBrush x:Key="Ui6D5CC6" Color="#383838"/>
+<SolidColorBrush x:Key="ActionFill" Color="#303030"/><SolidColorBrush x:Key="ActionText" Color="#FFFFFF"/>
+<FontFamily x:Key="BodyFont">Calibri, Segoe UI</FontFamily><FontFamily x:Key="HeadingFont">Bahnschrift, Segoe UI</FontFamily><FontFamily x:Key="CodeFont">Cascadia Mono, Consolas</FontFamily>
+
+  <SolidColorBrush x:Key="Muted" Color="#606060"/>
+  <Style x:Key="SoftFocus" TargetType="Control"><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Control"><Border BorderBrush="{DynamicResource Ui9D8CC6}" BorderThickness="1" CornerRadius="7" Margin="-2" Opacity="0.8"/></ControlTemplate></Setter.Value></Setter></Style>
+  <Style x:Key="WheelFocus" TargetType="Control"><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Control"><Ellipse Stroke="{DynamicResource Ui9D8CC6}" StrokeThickness="1" Margin="1" Opacity="0.8"/></ControlTemplate></Setter.Value></Setter></Style>
+  <Style TargetType="Slider"><Setter Property="FocusVisualStyle" Value="{StaticResource SoftFocus}"/></Style>
+  <Style TargetType="Button">
+   <Setter Property="FocusVisualStyle" Value="{StaticResource SoftFocus}"/>
+   <Setter Property="Background" Value="{DynamicResource UiFFFFFF}"/><Setter Property="Foreground" Value="{DynamicResource Ui363543}"/><Setter Property="BorderThickness" Value="0"/><Setter Property="Padding" Value="16,10"/><Setter Property="HorizontalContentAlignment" Value="Center"/><Setter Property="Cursor" Value="Hand"/><Setter Property="MinHeight" Value="38"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border x:Name="b" Background="{TemplateBinding Background}" CornerRadius="9" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="b" Property="Opacity" Value="0.82"/></Trigger><Trigger Property="IsPressed" Value="True"><Setter TargetName="b" Property="Opacity" Value="0.65"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="b" Property="Opacity" Value="0.4"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="WindowControl" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+   <Setter Property="Width" Value="38"/><Setter Property="Height" Value="34"/><Setter Property="MinHeight" Value="34"/><Setter Property="Padding" Value="0"/><Setter Property="Background" Value="Transparent"/><Setter Property="Foreground" Value="{DynamicResource Ui646173}"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border x:Name="ControlFace" Background="{TemplateBinding Background}" CornerRadius="9"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers>
+    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ControlFace" Property="Background" Value="{DynamicResource UiDCD5F1}"/><Setter Property="Foreground" Value="{DynamicResource Ui5542A7}"/></Trigger>
+    <MultiTrigger><MultiTrigger.Conditions><Condition Property="IsMouseOver" Value="True"/><Condition Property="Tag" Value="Close"/></MultiTrigger.Conditions><Setter TargetName="ControlFace" Property="Background" Value="{DynamicResource UiF6DFE5}"/><Setter Property="Foreground" Value="{DynamicResource UiA12E49}"/></MultiTrigger>
+    <Trigger Property="IsPressed" Value="True"><Setter TargetName="ControlFace" Property="Opacity" Value="0.6"/></Trigger>
+   </ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style TargetType="TextBox"><Setter Property="FocusVisualStyle" Value="{StaticResource SoftFocus}"/><Setter Property="Padding" Value="10,9"/><Setter Property="Background" Value="{DynamicResource UiF2F2F7}"/><Setter Property="Foreground" Value="{DynamicResource Ui292A38}"/><Setter Property="BorderBrush" Value="{DynamicResource UiDCDCE6}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="VerticalContentAlignment" Value="Center"/><Setter Property="MinHeight" Value="38"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TextBox"><Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="6"><ScrollViewer x:Name="PART_ContentHost"/></Border></ControlTemplate></Setter.Value></Setter></Style>
+  <Style TargetType="ComboBoxItem"><Setter Property="Foreground" Value="{DynamicResource Ui292A38}"/><Setter Property="Padding" Value="10,7"/><Setter Property="HorizontalContentAlignment" Value="Stretch"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBoxItem"><Border x:Name="ItemFace" Background="Transparent" CornerRadius="5" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border><ControlTemplate.Triggers><Trigger Property="IsHighlighted" Value="True"><Setter TargetName="ItemFace" Property="Background" Value="{DynamicResource UiEFEDF8}"/></Trigger><Trigger Property="IsSelected" Value="True"><Setter TargetName="ItemFace" Property="Background" Value="{DynamicResource UiDDD7F3}"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter></Style>
+  <Style TargetType="ComboBox"><Setter Property="Foreground" Value="{DynamicResource Ui292A38}"/><Setter Property="Background" Value="{DynamicResource UiFFFFFF}"/><Setter Property="MinHeight" Value="34"/><Setter Property="FocusVisualStyle" Value="{StaticResource SoftFocus}"/><Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBox"><Grid><ToggleButton Focusable="False" ClickMode="Press" IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"><ToggleButton.Template><ControlTemplate TargetType="ToggleButton"><Border Background="{DynamicResource UiFFFFFF}" BorderBrush="{DynamicResource UiDCDCE6}" BorderThickness="1" CornerRadius="7"><Path Data="M 0,0 L 4,4 L 8,0" Stroke="{DynamicResource Ui515362}" StrokeThickness="1.3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,11,0"/></Border></ControlTemplate></ToggleButton.Template></ToggleButton><ContentPresenter Margin="10,5,30,5" VerticalAlignment="Center" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/><Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" AllowsTransparency="True" Focusable="False"><Border Background="{DynamicResource UiFFFFFF}" BorderBrush="{DynamicResource UiDCDCE6}" BorderThickness="1" CornerRadius="8" Padding="4" Margin="0,4,0,0" MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"><ScrollViewer MaxHeight="240" CanContentScroll="True"><ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained"/></ScrollViewer></Border></Popup></Grid></ControlTemplate></Setter.Value></Setter></Style>
+  <Style TargetType="CheckBox"><Setter Property="Foreground" Value="{DynamicResource Ui292A38}"/><Setter Property="FocusVisualStyle" Value="{StaticResource SoftFocus}"/><Setter Property="VerticalContentAlignment" Value="Center"/><Setter Property="Margin" Value="0,5"/></Style>
+  <Style x:Key="FavoriteToggle" TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+   <Setter Property="VerticalAlignment" Value="Center"/><Setter Property="MinHeight" Value="38"/><Setter Property="ToolTip" Value="Mark this palette as a favorite"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox"><Border x:Name="Face" Background="{DynamicResource UiF2F2F7}" CornerRadius="8" Padding="10,8"><StackPanel Orientation="Horizontal" VerticalAlignment="Center"><TextBlock x:Name="Star" Text="☆" FontSize="17" Margin="0,0,6,0" VerticalAlignment="Center"/><ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="True"/></StackPanel></Border><ControlTemplate.Triggers><Trigger Property="IsChecked" Value="True"><Setter TargetName="Star" Property="Text" Value="★"/><Setter TargetName="Face" Property="Background" Value="{DynamicResource UiDDD7F3}"/></Trigger><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Face" Property="Background" Value="{DynamicResource UiEAE7F2}"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="Face" Property="Opacity" Value="0.5"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="Card" TargetType="Border"><Setter Property="Background" Value="{DynamicResource UiFFFFFF}"/><Setter Property="CornerRadius" Value="16"/><Setter Property="Padding" Value="22"/></Style>
+  <Style x:Key="SlimScrollBar" TargetType="ScrollBar">
+   <Setter Property="Width" Value="8"/><Setter Property="MinWidth" Value="0"/><Setter Property="Background" Value="Transparent"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ScrollBar">
+    <Grid Background="Transparent"><Track x:Name="PART_Track" Orientation="Vertical" IsDirectionReversed="True" Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Value="{TemplateBinding Value}" ViewportSize="{TemplateBinding ViewportSize}">
+     <Track.DecreaseRepeatButton><RepeatButton Command="p:ScrollBar.PageUpCommand" Focusable="False"><RepeatButton.Template><ControlTemplate TargetType="RepeatButton"><Border Background="Transparent"/></ControlTemplate></RepeatButton.Template></RepeatButton></Track.DecreaseRepeatButton>
+     <Track.Thumb><Thumb MinHeight="28"><Thumb.Template><ControlTemplate TargetType="Thumb"><Border x:Name="ThumbBody" Background="#BDBDBA" CornerRadius="3" Margin="1,0"/><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ThumbBody" Property="Background" Value="#858582"/></Trigger><Trigger Property="IsDragging" Value="True"><Setter TargetName="ThumbBody" Property="Background" Value="{DynamicResource ActionFill}"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Thumb.Template></Thumb></Track.Thumb>
+     <Track.IncreaseRepeatButton><RepeatButton Command="p:ScrollBar.PageDownCommand" Focusable="False"><RepeatButton.Template><ControlTemplate TargetType="RepeatButton"><Border Background="Transparent"/></ControlTemplate></RepeatButton.Template></RepeatButton></Track.IncreaseRepeatButton>
+    </Track></Grid>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="LibraryScroller" TargetType="ScrollViewer"><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ScrollViewer"><Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" CanContentScroll="{TemplateBinding CanContentScroll}" Margin="{TemplateBinding Padding}"/><ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="1" Orientation="Vertical" Style="{StaticResource SlimScrollBar}" Minimum="0" Maximum="{TemplateBinding ScrollableHeight}" ViewportSize="{TemplateBinding ViewportHeight}" Value="{Binding VerticalOffset, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/></Grid></ControlTemplate></Setter.Value></Setter></Style>
+ </Window.Resources>
+ <Grid>
+  <Grid.RowDefinitions><RowDefinition Height="60"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+  <Grid x:Name="TitleBar" Background="Transparent" Margin="22,0,10,0">
+   <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+   <StackPanel Orientation="Horizontal" VerticalAlignment="Center" IsHitTestVisible="False"><Grid Width="28" Height="28" Margin="0,0,10,0"><Ellipse Stroke="{DynamicResource Ui6D5CC6}" StrokeThickness="3" Margin="3"/><Ellipse Fill="{DynamicResource Ui6D5CC6}" Width="7" Height="7" HorizontalAlignment="Right" VerticalAlignment="Top"/></Grid><TextBlock Text="3.14" FontSize="19" FontWeight="SemiBold"/><TextBlock Text=" /  Color, full circle." Foreground="{DynamicResource Muted}" Margin="12,5,0,0"/></StackPanel>
+   <Border Grid.Column="1" Background="{DynamicResource UiEAE7F2}" CornerRadius="12" Padding="3" VerticalAlignment="Center" Margin="0,0,6,0"><StackPanel Orientation="Horizontal">
+    <Button x:Name="Minimize" Style="{StaticResource WindowControl}" ToolTip="Minimize" AutomationProperties.Name="Minimize window"><Path Data="M 0,5 L 10,5" Width="10" Height="10" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" StrokeThickness="1.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round" IsHitTestVisible="False"/></Button>
+    <Button x:Name="Close" Tag="Close" Style="{StaticResource WindowControl}" Margin="3,0,0,0" ToolTip="Close 3.14" AutomationProperties.Name="Close and quit"><Path Data="M 0,0 L 9,9 M 9,0 L 0,9" Width="10" Height="10" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" StrokeThickness="1.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round" IsHitTestVisible="False"/></Button>
+   </StackPanel></Border>
+  </Grid>
+  <Grid Grid.Row="1" Margin="24,4,24,14">
+   <Grid.ColumnDefinitions><ColumnDefinition Width="218"/><ColumnDefinition Width="24"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+   <Border CornerRadius="16" Background="{DynamicResource UiEDECF3}" Padding="16">
+    <DockPanel LastChildFill="True">
+     <StackPanel DockPanel.Dock="Top">
+      <TextBlock Text="Screen picker" Foreground="{DynamicResource Muted}" FontSize="13" FontWeight="SemiBold" Margin="0,2,0,12"/>
+      <Button x:Name="Pick" Content="⌖   Pick from screen" Background="{DynamicResource ActionFill}" Foreground="{DynamicResource ActionText}" FontWeight="SemiBold"/>
+      <TextBlock x:Name="ShortcutHint" Text="Ctrl + Shift + C" HorizontalAlignment="Center" Foreground="{DynamicResource Muted}" FontSize="{DynamicResource CaptionSize}" Margin="0,9,0,8"/>
+      <StackPanel Margin="0,0,0,18"><Border Background="{DynamicResource UiDDD7F3}" CornerRadius="9" Padding="3"><UniformGrid Columns="2"><Button x:Name="PickBase" Content="Base color" FontSize="12" MinHeight="28" Padding="6,4" Background="{DynamicResource UiDDD7F3}"/><Button x:Name="PickRole" Content="Selected role" MinHeight="28" Padding="6,4" FontSize="12"/></UniformGrid></Border><TextBlock x:Name="PickTarget" Text="PICKING: BASE COLOR" Foreground="{DynamicResource Ui4F3E99}" FontWeight="SemiBold" FontSize="10" Margin="2,6,0,0"/></StackPanel>
+      <TextBlock Text="Recent colors" FontSize="12" FontWeight="SemiBold" Foreground="{DynamicResource Ui292A38}" Margin="0,0,0,10"/>
+      <WrapPanel x:Name="History" Margin="0,0,0,16"/><Border Height="1" Background="{DynamicResource UiDCDCE6}" Margin="0,0,0,16"/>
+      <TextBlock Text="Your palettes" FontSize="13" FontWeight="SemiBold" Foreground="{DynamicResource Ui292A38}" Margin="0,0,0,10"/>
+      <TextBlock Text="Search palettes" FontSize="{DynamicResource CaptionSize}" Foreground="{DynamicResource Muted}" Margin="0,0,0,4"/><TextBox x:Name="LibrarySearch" MinHeight="30" Padding="7,4" AutomationProperties.Name="Search saved palettes" ToolTip="Search palette names" Margin="0,0,0,6"/><ComboBox x:Name="LibrarySort" SelectedIndex="0" Margin="0,0,0,7" AutomationProperties.Name="Sort saved palettes"><ComboBoxItem Content="Newest first"/><ComboBoxItem Content="Name A–Z"/></ComboBox><CheckBox x:Name="FavoritesOnly" Style="{StaticResource FavoriteToggle}" Content="Favorites only" HorizontalAlignment="Stretch" Margin="0,2,0,12"/>
+     </StackPanel>
+     <StackPanel DockPanel.Dock="Bottom" Margin="0,12,0,0"><Border Height="1" Background="{DynamicResource UiDCDCE6}" Margin="0,0,0,10"/>
+      <TextBox x:Name="Shortcut" Visibility="Collapsed"/><Button x:Name="SetShortcut" Visibility="Collapsed"/>
+      <Button x:Name="HistoryButton" Content="Palette history" HorizontalContentAlignment="Left" Margin="0,0,0,4" Background="Transparent"/>
+      <Button x:Name="Settings" Content="Settings &amp; local data" HorizontalContentAlignment="Left" Background="Transparent"/>
+      <TextBlock Text="Local by design. No cloud." Foreground="{DynamicResource Muted}" FontSize="{DynamicResource CaptionSize}" Margin="3,9,0,0"/>
+     </StackPanel>
+      <ScrollViewer x:Name="LibraryScroll" Style="{StaticResource LibraryScroller}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" CanContentScroll="False"><StackPanel x:Name="Saved"/></ScrollViewer>
+    </DockPanel>
+   </Border>
+   <Grid Grid.Column="2" x:Name="Workspace">
+    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+    <Grid Margin="0,2,0,18"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+     <StackPanel><TextBlock Text="PALETTE STUDIO" FontSize="10" FontWeight="SemiBold" Foreground="{DynamicResource ActionFill}" Margin="0,0,0,6"/><TextBlock x:Name="PageHeading" FontFamily="{DynamicResource HeadingFont}" Text="A little color. Endless possibility." FontSize="{DynamicResource HeadingSize}" FontWeight="SemiBold" TextWrapping="Wrap"/></StackPanel>
+     <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="16,0,0,0"><Button x:Name="StudioTab" Content="Palette" Background="{DynamicResource UiDDD7F3}"/><Button x:Name="PreviewTab" Content="In the real world" Background="Transparent" Margin="5,0,0,0"/></StackPanel>
+    </Grid>
+    <Grid x:Name="StudioPage" Grid.Row="1">
+     <Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+     <Border x:Name="EditorCard" Style="{StaticResource Card}" Padding="18" Margin="0,0,0,14" VerticalAlignment="Stretch">
+      <StackPanel>
+       <Grid Margin="0,0,0,12"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="126"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock Text="Base color" VerticalAlignment="Center" Margin="0,0,13,0" FontWeight="SemiBold"/><TextBox x:Name="Seed" Grid.Column="1" AutomationProperties.Name="Base HEX color" FontFamily="{DynamicResource CodeFont}" MaxLength="20"/><Button x:Name="ApplySeed" Grid.Column="2" Content="Apply" Background="{DynamicResource UiEFEDF8}" Margin="8,0,0,0"/><StackPanel Grid.Column="4" Orientation="Horizontal"><Button x:Name="Light" Content="Light" Margin="0,0,4,0"/><Button x:Name="Dark" Content="Dark"/></StackPanel></Grid>
+       <Grid Margin="0,0,0,2"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock x:Name="SelectionHeading" FontFamily="{DynamicResource HeadingFont}" Text="Choose a role to edit" FontSize="{DynamicResource SectionSize}" FontWeight="SemiBold" Foreground="{DynamicResource Ui5542A7}" Margin="0,0,0,10"/><StackPanel Grid.Column="1" Orientation="Horizontal"><Button x:Name="Undo" Content="Undo" FontSize="12" MinHeight="30" Padding="9,4" ToolTip="Undo · Ctrl+Z"/><Button x:Name="Redo" Content="Redo" FontSize="12" MinHeight="30" Padding="9,4" ToolTip="Redo · Ctrl+Shift+Z"/></StackPanel></Grid>
+       <UniformGrid x:Name="Colors" Columns="5"/>
+       <Grid Margin="0,14,0,0"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock Text="Click a swatch to copy HEX + open its wheel.&#10;Locks preserve colors when regenerating." Foreground="{DynamicResource Muted}" FontSize="{DynamicResource CaptionSize}" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0,0,10,0"/><Button x:Name="Generate" Grid.Column="1" Content="↻   Regenerate" Background="{DynamicResource UiEFEDF8}"/></Grid>
+      </StackPanel>
+     </Border>
+     <Border x:Name="ExportCard" Grid.Row="1" Style="{StaticResource Card}"><StackPanel><Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBox x:Name="PaletteName" MaxLength="100" AutomationProperties.Name="Palette name"/><CheckBox x:Name="Favorite" Style="{StaticResource FavoriteToggle}" Grid.Column="1" Content="Favorite" Margin="15,0"/><Button x:Name="Save" Grid.Column="2" Content="Save palette" Background="{DynamicResource ActionFill}" Foreground="{DynamicResource ActionText}"/></Grid><StackPanel Orientation="Horizontal" Margin="0,12,0,0"><Button x:Name="CopyCss" Content="Copy CSS variables" Background="{DynamicResource UiEFEDF8}"/><Button x:Name="Export" Content="Export JSON ↗" Background="{DynamicResource UiEFEDF8}" Margin="8,0,0,0"/><Button x:Name="ExportPreview" Content="Review export" FontSize="12" Margin="8,0,0,0"/><Button x:Name="Import" Content="Import" FontSize="12" Margin="4,0,0,0"/><Button x:Name="Snapshot" Content="Snapshot" FontSize="12" Margin="4,0,0,0"/></StackPanel></StackPanel></Border>
+    </Grid>
+    <Grid x:Name="PreviewPage" Grid.Row="1" Visibility="Collapsed">
+     <Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+     <Border x:Name="PreviewBg" CornerRadius="16" Padding="26" Margin="0,0,0,14">
+      <Grid VerticalAlignment="Center"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="24"/><ColumnDefinition Width="0.85*"/></Grid.ColumnDefinitions>
+       <StackPanel><TextBlock x:Name="PreviewLabel" Text="A SPACE FOR GOOD IDEAS" FontSize="10" FontWeight="SemiBold" Margin="0,0,0,12"/><TextBlock x:Name="PreviewHeading" FontFamily="{DynamicResource HeadingFont}" Text="Make room&#10;for a fresh perspective." FontSize="26" FontWeight="SemiBold" TextWrapping="Wrap"/><TextBlock x:Name="PreviewBody" Text="Thoughtful colors turn an everyday interface into somewhere you want to stay." TextWrapping="Wrap" LineHeight="21" Margin="0,12,0,18"/><Button x:Name="PreviewButton" Content="Explore the possibilities  →" HorizontalAlignment="Left" IsTabStop="False" ToolTip="Preview button — no navigation"/></StackPanel>
+       <Border x:Name="PreviewSurface" Grid.Column="2" CornerRadius="12" Padding="20" VerticalAlignment="Center"><StackPanel><TextBlock x:Name="PreviewCardHeading" FontFamily="{DynamicResource HeadingFont}" Text="Something worth keeping" FontSize="{DynamicResource SectionSize}" FontWeight="SemiBold" TextWrapping="Wrap"/><TextBlock x:Name="PreviewCardBody" Text="A small detail. A different feeling. Your next idea starts here." TextWrapping="Wrap" LineHeight="20" Margin="0,10,0,18"/><TextBlock x:Name="PreviewInputLabel" Text="Your next idea" Margin="0,0,0,6"/><TextBox x:Name="PreviewInput" Text="A brighter beginning" AutomationProperties.Name="Live preview input"/></StackPanel></Border>
+      </Grid>
+     </Border>
+     <Border x:Name="ContrastCard" Grid.Row="1" Style="{StaticResource Card}"><StackPanel><TextBlock Text="Contrast, with context" FontSize="15" FontWeight="SemiBold" Margin="0,0,0,10"/><UniformGrid x:Name="Contrast" Columns="2"/><TextBlock Text="AA normal text ≥ 4.5:1 · Large text / essential non-text boundaries ≥ 3:1" Foreground="{DynamicResource Muted}" FontSize="{DynamicResource CaptionSize}" TextWrapping="Wrap" Margin="0,4,0,0"/><TextBlock x:Name="Conflicts" Foreground="{DynamicResource Ui934521}" TextWrapping="Wrap" Margin="0,6,0,0" FontSize="{DynamicResource CaptionSize}"/></StackPanel></Border>
+    </Grid>
+   </Grid>
+  </Grid>
+  <Border Grid.Row="2" Padding="26,10" Background="{DynamicResource UiECEBF2}"><StackPanel><TextBlock x:Name="StorageWarning" Foreground="{DynamicResource Ui934521}" TextTrimming="CharacterEllipsis" Visibility="Collapsed"/><Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock x:Name="Status" Text="Ready when you are. Pick a color or enter a HEX value." Foreground="{DynamicResource Ui515362}" TextTrimming="CharacterEllipsis" AutomationProperties.LiveSetting="Polite"/><TextBlock x:Name="SaveState" Grid.Column="1" Text="Draft saved locally" FontSize="{DynamicResource CaptionSize}" Foreground="{DynamicResource Muted}" Margin="12,0" VerticalAlignment="Center"/><Button x:Name="DismissHint" Grid.Column="2" Content="Got it" MinHeight="26" Padding="8,3" FontSize="{DynamicResource CaptionSize}"/></Grid></StackPanel></Border>
+ </Grid>
+</Window>
+
+
+
+
+
+
+
