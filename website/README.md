@@ -10,7 +10,7 @@ From the repository root:
 python -m http.server 4173 --directory website/dist --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:4173. Clipboard requires a secure context (HTTPS or localhost); if unavailable, selectable CSS appears. Native desktop picking is available only in the Windows app. Build links point to GitHub Actions artifacts, not a nonexistent release/installer.
+Open http://127.0.0.1:4173. Clipboard requires a secure context (HTTPS or localhost); if unavailable, selectable CSS appears. Native desktop picking is available only in the Windows app. All Get/Download buttons link directly to the latest GitHub release asset, 3.14-Setup.exe. Release notes disclose unsigned status and include a SHA-256 checksum.
 
 ## Verification
 
@@ -30,3 +30,5 @@ Run intro lifecycle checks with: node website/check-intro.cjs (from the reposito
 
 ## Vercel
 Production: https://pi-color-studio.vercel.app. Vercel project `pi-color-studio`, source repository `marmalade1124/3.14`, production branch `main`, Root Directory `website`, Framework Preset Other, Output Directory `dist`, and empty build/install commands. `vercel.json` preserves the static settings. No environment variables or API keys are needed. Local Vercel linkage is ignored by Git. Existing deployment protection settings are preserved.
+
+Installer distribution: https://github.com/marmalade1124/3.14/releases/latest/download/3.14-Setup.exe. Keep the asset filename stable on future releases so website links continue working. The website downloads the file; it never installs or launches it automatically.
