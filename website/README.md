@@ -27,3 +27,6 @@ The homepage plays a first-session circular introduction: a 450 ms SVG ring draw
 
 Run intro lifecycle checks with: node website/check-intro.cjs (from the repository root). Browser verified the ring appearing, full page becoming visible, and session repeat skipping.
 
+
+## Vercel
+Production: https://pi-color-studio.vercel.app. Vercel project `pi-color-studio`, source repository `marmalade1124/3.14`, production branch `main`, Root Directory `website`, Framework Preset Other, Output Directory `dist`, and empty build/install commands. `vercel.json` preserves the static settings. No environment variables or API keys are needed. Local Vercel linkage is ignored by Git. Existing deployment protection settings are preserved.

@@ -125,6 +125,8 @@ Source is published for review and personal development. No open-source license 
 
 ## Companion website
 
+Live website: [pi-color-studio.vercel.app](https://pi-color-studio.vercel.app).
+
 The matching light-only website is in [`website/dist`](website/dist), with setup and behavior in [`website/README.md`](website/README.md). It uses plain HTML/CSS/JavaScript and system fonts, with no installation or bundler. Serve it locally:
 
 ```powershell

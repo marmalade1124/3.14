@@ -22,3 +22,5 @@ website/.openai/
 .site-preview/
 !website/dist/
 
+
+.vercel/
