@@ -18,3 +18,11 @@
 
 .keyboard-input{scroll-behavior:auto}
 
+
+@property --intro-radius{syntax:"<length>";inherits:false;initial-value:0px}
+.intro-screen{position:fixed;inset:0;z-index:1000;background:var(--page);display:grid;place-items:center;pointer-events:none;--intro-radius:0px;mask-image:radial-gradient(circle at 50% 50%,transparent var(--intro-radius),#000 calc(var(--intro-radius) + 1px));animation:circle-unveil 650ms var(--ease-out) 450ms forwards}
+.intro-mark{width:84px;height:84px;overflow:visible}.intro-ring{transform:rotate(-90deg);transform-origin:center;stroke-dasharray:100;stroke-dashoffset:100;animation:circle-form 450ms var(--ease-out) forwards}.intro-point{opacity:0;animation:point-appear 140ms ease-out 250ms forwards}
+@keyframes circle-form{to{stroke-dashoffset:0}}
+@keyframes point-appear{to{opacity:1}}
+@keyframes circle-unveil{to{--intro-radius:150vmax}}
+@media(prefers-reduced-motion:reduce){.intro-screen{display:none}}

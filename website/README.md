@@ -22,3 +22,8 @@ Light-only material grays, charcoal actions, system typography, one circular sam
 
 ## Motion
 One-time section reveals use IntersectionObserver with opacity/transform (500 ms, 60 ms child stagger). Hover/press feedback takes 140 ms; pointer palette color transitions take 220 ms. Palette color changes deliberately repaint the small demo, preserving real inputs and selectable text. Keyboard actions finish reveals immediately and disable transitions. Reduced-motion preferences remove movement; content stays visible without JavaScript or IntersectionObserver. No animation library or perpetual motion.
+
+The homepage plays a first-session circular introduction: a 450 ms SVG ring draw, then a 650 ms expanding radial mask revealing the page. It is decorative, ignores pointer hit testing, skips deep links and reduced-motion preferences, and dismisses on input. A 1.4 second failsafe removes it even if mask animation support fails. No cookies or network request; a sessionStorage flag avoids repeat playback.
+
+Run intro lifecycle checks with: node website/check-intro.cjs (from the repository root). Browser verified the ring appearing, full page becoming visible, and session repeat skipping.
+

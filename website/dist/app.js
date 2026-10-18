@@ -56,3 +56,26 @@ function finishReveals() {
 document.addEventListener("keydown", () => {document.documentElement.classList.add("keyboard-input");finishReveals();}, {capture:true});
 document.addEventListener("pointerdown", () => document.documentElement.classList.remove("keyboard-input"), {capture:true});
 reducedMotion.addEventListener("change", event => {if(event.matches)finishReveals();});
+
+// A decorative first-visit reveal; never gate navigation, input or reduced-motion access.
+let introSeen = false;
+try {introSeen = sessionStorage.getItem("pi-intro-seen-v1") === "1";} catch {}
+if (!introSeen && !reducedMotion.matches && !location.hash && CSS.supports("mask-image", "radial-gradient(circle, transparent, black)")) {
+  const intro = document.createElement("div");
+  intro.className = "intro-screen";
+  intro.setAttribute("aria-hidden", "true");
+  intro.innerHTML = '<svg class="intro-mark" viewBox="0 0 100 100" fill="none"><circle class="intro-ring" cx="50" cy="50" r="34" pathLength="100" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle class="intro-point" cx="76" cy="25" r="5" fill="currentColor" stroke="var(--page)" stroke-width="3"/></svg>';
+  document.body.append(intro);
+  try {sessionStorage.setItem("pi-intro-seen-v1", "1");} catch {}
+  const skipEvents = ["keydown", "pointerdown", "wheel", "touchstart"];
+  function closeIntro() {
+    intro.remove();
+    clearTimeout(failsafe);
+    skipEvents.forEach(name => document.removeEventListener(name, closeIntro, true));
+    reducedMotion.removeEventListener("change", closeIntro);
+  }
+  const failsafe = setTimeout(closeIntro, 1400);
+  skipEvents.forEach(name => document.addEventListener(name, closeIntro, {capture:true, passive:true}));
+  reducedMotion.addEventListener("change", closeIntro);
+  intro.addEventListener("animationend", event => {if(event.target === intro)closeIntro();});
+}
