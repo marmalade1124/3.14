@@ -21,9 +21,17 @@ jobs:
           $test = Start-Process ./dist/3.14.exe -ArgumentList '--self-test' -Wait -PassThru
           Get-Content ./test-results.txt
           if ($test.ExitCode -ne 0) { throw 'Core assertions failed' }
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (!(Test-Path $compiler)) { choco install innosetup --version=6.7.3 --yes --no-progress }
+          ./build-installer.ps1 -Compiler $compiler
       - uses: actions/upload-artifact@v4
         with:
-          name: 3.14-windows-x64-portable
+          name: 3.14-windows-x64
           path: |
             dist/3.14.exe
             dist/README.md
+            dist/3.14-Setup.exe
+            dist/SHA256SUMS.txt

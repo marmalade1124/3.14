@@ -24,3 +24,5 @@ website/.openai/
 
 
 .vercel/
+
+.tools/

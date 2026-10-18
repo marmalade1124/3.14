@@ -22,7 +22,11 @@ Windows 10 1703+ or Windows 11, x64, .NET Framework 4.8. No downloaded dependenc
 ./dist/3.14.exe
 ```
 
-**Get a build:** open the repository’s [Windows build workflow](https://github.com/marmalade1124/3.14/actions/workflows/windows-build.yml), select a successful run and download its portable artifact (GitHub sign-in may be required), or build locally with the commands above. No signed installer or published release is claimed.
+**Install:** download [3.14-Setup.exe](https://github.com/marmalade1124/3.14/releases/latest/download/3.14-Setup.exe) from the latest GitHub release. It installs for the current user in `%LOCALAPPDATA%\Programs\3.14`, adds a Start Menu entry and offers an optional desktop shortcut. It checks for .NET Framework 4.8. Uninstall through Windows Settings; saved palettes remain in `%LOCALAPPDATA%\3.14`.
+
+The installer is **unsigned**; Windows may show an unknown-publisher or SmartScreen warning. Inspect the release source and compare [SHA256SUMS.txt](https://github.com/marmalade1124/3.14/releases/latest/download/SHA256SUMS.txt) before deciding whether to run it. There is no signing certificate or automatic updater.
+
+**Portable / development:** use the [Windows build workflow](https://github.com/marmalade1124/3.14/actions/workflows/windows-build.yml) artifacts (GitHub sign-in may be required), or build locally with the commands above.
 
 The portable executable is `dist/3.14.exe`. It is unsigned. Close quits and unregisters the shortcut. The window is **fixed at 1160 × 760 logical units**. Manual resizing, maximizing and double-click maximizing are disabled, superseding the earlier maximize/Snap and adaptive-sizing suggestions. Drag the title area to move. Custom minimize/close controls remain, and right-clicking the title area or Alt+Space opens the Windows system menu. Resize/maximize options are disabled. Very high display scaling on a small monitor can leave insufficient logical workspace for this fixed window.
 
@@ -134,3 +138,15 @@ python -m http.server 4173 --directory website/dist --bind 127.0.0.1
 ```
 
 Open http://127.0.0.1:4173. Four prepared sample palettes demonstrate a live card, specific text/background contrast and CSS copying; the browser demo does not perform native screen picking. Clipboard failure offers selectable output. Local preview, palette selection, keyboard activation, copy feedback, FAQ and narrow layout have been checked. Screen-reader testing and real mobile-device testing remain outstanding.
+
+## Build the installer
+
+Install [Inno Setup 6](https://jrsoftware.org/isdl.php), close any running copy of 3.14, then run:
+
+```powershell
+./build-installer.ps1 -Compiler 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe' -Version 0.1.0
+```
+
+This rebuilds the app and writes `dist/3.14-Setup.exe` plus `dist/SHA256SUMS.txt`. Inno Setup is a packaging-time dependency only; the app still has no external runtime package dependencies. The installer definition is `installer/3.14.iss`. It uses current-user privileges and never deletes the palette library on uninstall. Verify the app is closed before packaging or replacing a build.
+
+Installer verification: isolated silent install succeeded, installed executable SHA-256 matched the built app, 27 installed-app feature assertions passed, and uninstall removed the executable and Start Menu shortcut while leaving the real saved-library hash unchanged. This was tested on the current machine, not a clean Windows VM; first-install .NET-missing and SmartScreen paths remain unverified.
