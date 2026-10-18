@@ -122,3 +122,13 @@ website/               Companion website (when present)
 Edit C# or XAML, close any running copy of 3.14, rebuild, then run the relevant checks above. The build script needs Windows and the .NET Framework 4.8 compiler/reference assemblies; if PowerShell blocks a downloaded script, review it before using a process-scoped execution-policy override. No NuGet restore or Node installation is needed for the desktop app. CI runs core assertions; interactive desktop tests are a separate local check.
 
 Source is published for review and personal development. No open-source license or trademark clearance is asserted. Do not infer redistribution rights from the repository being visible.
+
+## Companion website
+
+The matching light-only website is in [`website/dist`](website/dist), with setup and behavior in [`website/README.md`](website/README.md). It uses plain HTML/CSS/JavaScript and system fonts, with no installation or bundler. Serve it locally:
+
+```powershell
+python -m http.server 4173 --directory website/dist --bind 127.0.0.1
+```
+
+Open http://127.0.0.1:4173. Four prepared sample palettes demonstrate a live card, specific text/background contrast and CSS copying; the browser demo does not perform native screen picking. Clipboard failure offers selectable output. Local preview, palette selection, keyboard activation, copy feedback, FAQ and narrow layout have been checked. Screen-reader testing and real mobile-device testing remain outstanding.

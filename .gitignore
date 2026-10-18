@@ -18,3 +18,7 @@ history-preview.png
 graphify-out/
 output/
 website/.openai/
+
+.site-preview/
+!website/dist/
+
