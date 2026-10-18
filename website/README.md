@@ -19,3 +19,6 @@ Run `node --check website/dist/app.js`. Browser QA passed for desktop and narrow
 ## Design
 
 Light-only material grays, charcoal actions, system typography, one circular sampling mark, restrained sections and generous spacing. Responsive layout and keyboard focus. Reduced motion disables smooth scrolling. Prepared palette interaction is explicitly labeled as a demo. No invented users, ratings, pricing or trademark claims.
+
+## Motion
+One-time section reveals use IntersectionObserver with opacity/transform (500 ms, 60 ms child stagger). Hover/press feedback takes 140 ms; pointer palette color transitions take 220 ms. Palette color changes deliberately repaint the small demo, preserving real inputs and selectable text. Keyboard actions finish reveals immediately and disable transitions. Reduced-motion preferences remove movement; content stays visible without JavaScript or IntersectionObserver. No animation library or perpetual motion.

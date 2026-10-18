@@ -22,7 +22,7 @@ function render() {
   document.querySelector("#contrast-ratio").textContent = ratio.toFixed(2) + ":1";
   document.querySelector("#contrast-result").textContent = ratio >= 4.5 ? "AA normal text · Pass" : "AA normal text · Fail";
 }
-document.querySelectorAll("[data-palette]").forEach(button => button.addEventListener("click", () => {active = button.dataset.palette; render(); status.textContent = "";}));
+document.querySelectorAll("[data-palette]").forEach(button => button.addEventListener("click", event => {demo.classList.toggle("pointer-transition", event.detail > 0);active = button.dataset.palette; render(); status.textContent = "";}));
 document.querySelector("#copy-css").addEventListener("click", async () => {
   const output = ":root {\n" + Object.entries(palettes[active]).map(([role, hex]) => "  --color-" + role + ": " + hex + ";").join("\n") + "\n}";
   try {await navigator.clipboard.writeText(output); status.textContent = "Sample CSS copied. Ready for your next idea.";}
@@ -33,3 +33,26 @@ document.querySelector("#demo-button").addEventListener("click", () => {
   document.querySelector("#idea-status").textContent = value ? "A little beginning: “" + value + "”. Demo only; not saved." : "Add a name above to try this preview. Nothing is saved.";
 });
 render();
+
+// Progressive enhancement: content is visible if JS or IntersectionObserver is unavailable.
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const revealTargets = document.querySelectorAll(".hero-copy, .hero-note, .app-section, .section-heading, .steps li, .playground-copy, .demo-wrap, .details > div, .download > div, .faq > h2");
+let revealObserver;
+if (!reducedMotion.matches && "IntersectionObserver" in window) {
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("reveal-ready");
+      entry.target.classList.remove("reveal-pending");
+      revealObserver.unobserve(entry.target);
+    });
+  }, {threshold: .08});
+  revealTargets.forEach(element => {element.classList.add("reveal-pending");revealObserver.observe(element);});
+}
+function finishReveals() {
+  if (revealObserver) revealObserver.disconnect();
+  revealTargets.forEach(element => {element.classList.remove("reveal-pending");element.classList.add("reveal-ready");});
+}
+document.addEventListener("keydown", () => {document.documentElement.classList.add("keyboard-input");finishReveals();}, {capture:true});
+document.addEventListener("pointerdown", () => document.documentElement.classList.remove("keyboard-input"), {capture:true});
+reducedMotion.addEventListener("change", event => {if(event.matches)finishReveals();});
